@@ -8,11 +8,12 @@ from utils import dotenv
 load_dotenv()
 dotenv.validate_dotenv()
 
-from controller import userController, authController
+from controller import userController, authController, testController
 from database import engine 
-from model import userModel
+from model import userModel, testModel
 
 userModel.Base.metadata.create_all(bind=engine)
+testModel.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
   
@@ -30,6 +31,7 @@ app.add_middleware(
 # Routers
 app.include_router(prefix="/api", router=authController.auth)
 app.include_router(prefix="/api", router=userController.user)
+app.include_router(prefix="/api", router=testController.test)
 
 @app.get("/")
 def read_root():
