@@ -3,7 +3,7 @@ from fastapi.testclient import TestClient
 
 from src.main import app
 from src.constants import errorMessages
-from src.database import get_db, engine, Base
+from src.database.database import get_db, engine, Base
 from tests import test_auth
 
 valid_user_active_admin = test_auth.valid_user_active_admin

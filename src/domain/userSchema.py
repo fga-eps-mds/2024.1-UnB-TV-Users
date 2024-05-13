@@ -3,12 +3,12 @@ from pydantic import BaseModel, ConfigDict
 from fastapi_filter import FilterDepends, with_prefix
 from sqlalchemy import or_
 from fastapi_filter.contrib.sqlalchemy import Filter
-from model import userModel
+from src.model import userModel
 
 class UserUpdate(BaseModel):
-  name: str | None = None
-  email: str | None = None
-  connection: str | None = None
+  name: str = None
+  email: str = None
+  connection: str = None
 
 class User(BaseModel):
   model_config = ConfigDict(from_attributes = True)
