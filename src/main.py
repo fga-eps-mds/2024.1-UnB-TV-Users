@@ -3,9 +3,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 
-from src.controller import userController, authController
-from src.model import userModel
-from src.database import database
+from  controller import userController, authController
+from  model import userModel
+from  database import database
 
 
 userModel.Base.metadata.create_all(bind=database.engine)

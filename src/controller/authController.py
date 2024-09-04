@@ -1,13 +1,13 @@
 from fastapi import APIRouter, HTTPException, Response, status, Depends
-from src.utils import security, enumeration, send_mail
-from src.database.database import get_db
+from  utils import security, enumeration, send_mail
+from  database.database import get_db
 from sqlalchemy.orm import Session
 from datetime import datetime, timedelta
-from src.constants import errorMessages
+from  constants import errorMessages
 from starlette.responses import JSONResponse
 
-from src.domain import userSchema, authSchema
-from src.repository import userRepository
+from  domain import userSchema, authSchema
+from  repository import userRepository
 
 auth = APIRouter(
   prefix="/auth"

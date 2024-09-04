@@ -9,11 +9,11 @@ from starlette.responses import JSONResponse
 from jose import JWTError
 from fastapi import HTTPException
 
-from src.main import app
-from src.constants import errorMessages
-from src.model import userModel
-from src.utils import security, dotenv, send_mail, enumeration
-from src.database.database import get_db, engine, Base
+from  main import app
+from  constants import errorMessages
+from  model import userModel
+from  utils import security, dotenv, send_mail, enumeration
+from  database.database import get_db, engine, Base
 
 valid_user_active_admin = {"name": "Forsen", "email": "valid@email.com", "connection": "PROFESSOR", "password": "123456"}
 valid_user_active_user = {"name": "Guy Beahm", "email": "valid2@email.com", "connection": "ESTUDANTE", "password": "123456"}
