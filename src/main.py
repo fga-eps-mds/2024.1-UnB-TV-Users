@@ -1,19 +1,16 @@
-import uvicorn, sys
+# import uvicorn, sys
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from starlette.middleware.base import BaseHTTPMiddleware
 
-from utils import dotenv
 
-load_dotenv()
-dotenv.validate_dotenv()
+from  controller import userController, authController
+from  model import userModel
+from  database import database
 
-from controller import userController, authController
-from database import engine 
-from model import userModel
 
-userModel.Base.metadata.create_all(bind=engine)
+userModel.Base.metadata.create_all(bind=database.engine)
 
 app = FastAPI()
 
@@ -46,9 +43,9 @@ app.include_router(prefix="/api", router=userController.user)
 def read_root():
     return {"message": "UnB-TV!"}
 
-if __name__ == '__main__': # pragma: no cover
-  port = 8000
-  if (len(sys.argv) == 2):
-    port = sys.argv[1]
+# if __name__ == '__main__': # pragma: no cover
+#   port = 8000
+#   if (len(sys.argv) == 2):
+#     port = sys.argv[1]
 
-  uvicorn.run('main:app', reload=True, port=int(port), host="0.0.0.0")
+#   uvicorn.run('main:app', reload=True, port=int(port), host="0.0.0.0")

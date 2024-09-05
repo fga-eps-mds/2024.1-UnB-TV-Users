@@ -9,3 +9,4 @@ data/postgress
 data
 .coverage
 *junit*
+.vercel

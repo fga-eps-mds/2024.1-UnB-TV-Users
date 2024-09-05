@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Response, status, Depends, Header
-from database import get_db
+from  database.database import get_db
 from sqlalchemy.orm import Session
 
 from constants import errorMessages

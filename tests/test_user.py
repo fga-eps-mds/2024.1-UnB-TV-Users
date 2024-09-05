@@ -8,9 +8,9 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 's
 import pytest
 from fastapi.testclient import TestClient
 
-from src.main import app
-from src.constants import errorMessages
-from src.database import get_db, engine, Base
+from  main import app
+from  constants import errorMessages
+from  database.database import get_db, engine, Base
 from tests import test_auth
 
 valid_user_active_admin = test_auth.valid_user_active_admin
